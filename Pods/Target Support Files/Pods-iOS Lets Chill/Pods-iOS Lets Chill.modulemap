@@ -1,0 +1,6 @@
+framework module Pods_iOS_Lets_Chill {
+  umbrella header "Pods-iOS Lets Chill-umbrella.h"
+
+  export *
+  module * { export * }
+}
