@@ -13,8 +13,39 @@ class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var phoneTextField: UITextField!
     
+    @IBOutlet var confirmButton: UIButton!
+    
+    @IBOutlet var spinnerActivity: UIActivityIndicatorView!
+    
     @IBAction func confirmAction(sender: AnyObject) {
         
+        if (self.phoneTextField.text?.characters.count == 0){
+            
+            let alertController = UIAlertController(title: "Phone Verifcation Required", message:
+                "Missing Phone Number for verifcation!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+        } else if (self.phoneTextField.text?.characters.count == 14){
+            self.phoneTextField.enabled = false
+            self.confirmButton.hidden = true
+            spinnerActivity.startAnimating()
+        } else {
+            let alertController = UIAlertController(title: "Phone Verifcation Error", message:
+                "Phone Number is invalid.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
+        let bg_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        
+        dispatch_async(bg_queue, {
+            // your network request here...
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                //self.phoneTextField.enabled = true
+            })
+        })
         
     }
     

@@ -72,6 +72,9 @@
                                     <navigationItem title="Phone Verification" id="mEO-sy-Yrn"/>
                                 </items>
                             </navigationBar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Sjf-sv-ZfL">
+                                <rect key="frame" x="290" y="301" width="20" height="20"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDc-fS-5OK">
                                 <rect key="frame" x="273" y="296" width="55" height="30"/>
                                 <state key="normal" title="Confirm"/>
@@ -87,6 +90,8 @@
                             <constraint firstItem="YOh-yY-3ky" firstAttribute="centerX" secondItem="4eF-76-LU0" secondAttribute="centerX" id="ERj-7P-sFp"/>
                             <constraint firstItem="sDc-fS-5OK" firstAttribute="top" secondItem="hi9-4E-6In" secondAttribute="bottom" constant="8" id="JKP-6j-rCi"/>
                             <constraint firstItem="NfV-gU-K5o" firstAttribute="top" secondItem="YOh-yY-3ky" secondAttribute="bottom" constant="151" id="KI5-X8-e47"/>
+                            <constraint firstItem="Sjf-sv-ZfL" firstAttribute="top" secondItem="hi9-4E-6In" secondAttribute="bottom" constant="13" id="NIi-I3-6x2"/>
+                            <constraint firstItem="Sjf-sv-ZfL" firstAttribute="centerX" secondItem="4eF-76-LU0" secondAttribute="centerX" id="Res-6h-wgF"/>
                             <constraint firstItem="NfV-gU-K5o" firstAttribute="centerX" secondItem="4eF-76-LU0" secondAttribute="centerX" id="f3u-fU-z7D"/>
                             <constraint firstItem="hi9-4E-6In" firstAttribute="top" secondItem="NfV-gU-K5o" secondAttribute="bottom" constant="22" id="ffp-BT-Qt1"/>
                             <constraint firstItem="YOh-yY-3ky" firstAttribute="leading" secondItem="4eF-76-LU0" secondAttribute="leadingMargin" constant="-20" id="q7I-CG-tX8"/>
@@ -96,7 +101,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Phone Verification" id="y3L-m3-fmj"/>
                     <connections>
+                        <outlet property="confirmButton" destination="sDc-fS-5OK" id="Gwv-m2-Rho"/>
                         <outlet property="phoneTextField" destination="hi9-4E-6In" id="qHN-ss-O2X"/>
+                        <outlet property="spinnerActivity" destination="Sjf-sv-ZfL" id="XSk-Z0-EFs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GP0-pi-1zS" userLabel="First Responder" sceneMemberID="firstResponder"/>
