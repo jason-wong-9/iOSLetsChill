@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		962D8A3D1C626FFF00F67A95 /* PhoneVerficationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D8A3C1C626FFF00F67A95 /* PhoneVerficationViewController.swift */; };
 		96BD7CA91C5491450038EFB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD7CA81C5491450038EFB8 /* AppDelegate.swift */; };
 		96BD7CAB1C5491450038EFB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD7CAA1C5491450038EFB8 /* ViewController.swift */; };
 		96BD7CAE1C5491450038EFB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96BD7CAC1C5491450038EFB8 /* Main.storyboard */; };
 		96BD7CB01C5491450038EFB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96BD7CAF1C5491450038EFB8 /* Assets.xcassets */; };
+		CCDE330D3430F7E4003D5186 /* Pods_iOS_Lets_Chill.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 319C60E4594AFB577D34F0B7 /* Pods_iOS_Lets_Chill.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		319C60E4594AFB577D34F0B7 /* Pods_iOS_Lets_Chill.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Lets_Chill.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94971AD9E57CAD7AA49B4AB8 /* Pods-iOS Lets Chill.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Lets Chill.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Lets Chill/Pods-iOS Lets Chill.release.xcconfig"; sourceTree = "<group>"; };
+		962D8A3C1C626FFF00F67A95 /* PhoneVerficationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneVerficationViewController.swift; sourceTree = "<group>"; };
 		96BD7CA51C5491450038EFB8 /* iOS Lets Chill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Lets Chill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96BD7CA81C5491450038EFB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96BD7CAA1C5491450038EFB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCDE330D3430F7E4003D5186 /* Pods_iOS_Lets_Chill.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +66,7 @@
 				96BD7CAC1C5491450038EFB8 /* Main.storyboard */,
 				96BD7CAF1C5491450038EFB8 /* Assets.xcassets */,
 				96BD7CB41C5491450038EFB8 /* Info.plist */,
+				962D8A3C1C626FFF00F67A95 /* PhoneVerficationViewController.swift */,
 			);
 			path = "iOS Lets Chill";
 			sourceTree = "<group>";
@@ -77,6 +83,7 @@
 		D2FBCC63FB41403FC5E74699 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				319C60E4594AFB577D34F0B7 /* Pods_iOS_Lets_Chill.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -204,6 +211,7 @@
 			files = (
 				96BD7CAB1C5491450038EFB8 /* ViewController.swift in Sources */,
 				96BD7CA91C5491450038EFB8 /* AppDelegate.swift in Sources */,
+				962D8A3D1C626FFF00F67A95 /* PhoneVerficationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
