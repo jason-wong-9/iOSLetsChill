@@ -21,6 +21,8 @@ class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
     
     let code = arc4random_uniform(8999) + 1000
     
+    var numberTo = ""
+    
     @IBAction func confirmAction(sender: AnyObject) {
         if self.confirmButton.titleLabel!.text == "Confirm" {
             if self.phoneTextField.text?.characters.count == 0 {
@@ -35,7 +37,7 @@ class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
                 self.confirmButton.hidden = true
                 self.confirmButton.userInteractionEnabled = false
                 spinnerActivity.startAnimating()
-                let numberTo = self.phoneFormatToString(self.phoneTextField.text!)
+                numberTo = self.phoneFormatToString(self.phoneTextField.text!)
                 
                 print(code)
                 let data = [
@@ -102,6 +104,23 @@ class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
             } else if self.phoneTextField.text == String(code){
                 // create firebase user
                 
+                let ref = Firebase(url: "https://letschill.firebaseio.com")
+                var index = numberTo.startIndex.advancedBy(2)
+                var email: String = numberTo.substringFromIndex(index)
+                print(email)
+                email += "@jasonkcwong.com"
+                print(email)
+                ref.createUser(email, password: String(code),
+                    withValueCompletionBlock: { error, result in
+                        
+                        if error != nil {
+                            // There was an error creating the account
+                        } else {
+                            let uid = result["uid"] as? String
+                            print("Successfully created user account with uid: \(uid)")
+                        }
+                })
+                
             } else {
                 let alertController = UIAlertController(title: "Invalid", message:
                     "You have entered an invalid code for verifcation", preferredStyle: UIAlertControllerStyle.Alert)
@@ -122,7 +141,7 @@ class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
         return str
     }
     
-    //let ref = Firebase(url: "https://letschill.firebaseio.com")
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
