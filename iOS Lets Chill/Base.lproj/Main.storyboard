@@ -55,7 +55,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Phone Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfV-gU-K5o">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Phone Number:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfV-gU-K5o">
                                 <rect key="frame" x="218" y="215" width="165" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -102,13 +102,14 @@
                     <navigationItem key="navigationItem" title="Phone Verification" id="y3L-m3-fmj"/>
                     <connections>
                         <outlet property="confirmButton" destination="sDc-fS-5OK" id="Gwv-m2-Rho"/>
+                        <outlet property="enterLabel" destination="NfV-gU-K5o" id="MbG-Uc-AE3"/>
                         <outlet property="phoneTextField" destination="hi9-4E-6In" id="qHN-ss-O2X"/>
                         <outlet property="spinnerActivity" destination="Sjf-sv-ZfL" id="XSk-Z0-EFs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GP0-pi-1zS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1335" y="-343"/>
+            <point key="canvasLocation" x="1383" y="-343"/>
         </scene>
         <!--My Events-->
         <scene sceneID="yhc-aQ-Vqs">
@@ -190,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vd8-BN-dSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2130" y="-326"/>
+            <point key="canvasLocation" x="2712" y="-353"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7We-Fc-Eka">

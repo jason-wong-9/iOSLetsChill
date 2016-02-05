@@ -8,45 +8,118 @@
 
 import UIKit
 import Firebase
+import SwiftRequest
 
 class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet var enterLabel: UILabel!
     @IBOutlet var phoneTextField: UITextField!
     
     @IBOutlet var confirmButton: UIButton!
     
     @IBOutlet var spinnerActivity: UIActivityIndicatorView!
     
+    let code = arc4random_uniform(8999) + 1000
+    
     @IBAction func confirmAction(sender: AnyObject) {
-        
-        if (self.phoneTextField.text?.characters.count == 0){
+        if self.confirmButton.titleLabel!.text == "Confirm" {
+            if self.phoneTextField.text?.characters.count == 0 {
+                
+                let alertController = UIAlertController(title: "Phone Verifcation Required", message:
+                    "Missing Phone Number for verifcation!", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+            } else if self.phoneTextField.text?.characters.count == 14{
+                self.phoneTextField.enabled = false
+                self.confirmButton.hidden = true
+                self.confirmButton.userInteractionEnabled = false
+                spinnerActivity.startAnimating()
+                let numberTo = self.phoneFormatToString(self.phoneTextField.text!)
+                
+                print(code)
+                let data = [
+                    "To" : numberTo,
+                    "From" : "+17786550640",
+                    "Body" : String(code) as String
+                ]
+                print(numberTo)
+                
+                let swiftRequest = SwiftRequest()
+                
+                swiftRequest.post("https://api.twilio.com/2010-04-01/Accounts/ACd49f32975885a2d612c8e32598197df7/Messages",
+                    auth: ["username" : "ACd49f32975885a2d612c8e32598197df7", "password" : "8100a9c8b51620a1e769013d91101401"],
+                    data: data,
+                    callback: {err, response, body in
+                        if err == nil {
+                            print("Success: (response)")
+                            
+                        } else {
+                            print("Error: (err)")
+                            
+                            let alertController = UIAlertController(title: "Problem with SMS", message:
+                                "Validation messsage was not successfully sent.", preferredStyle: UIAlertControllerStyle.Alert)
+                            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+                            self.presentViewController(alertController, animated: true, completion: nil)
+                            self.confirmButton.hidden = false
+                            self.confirmButton.userInteractionEnabled = true
+                            
+                            self.phoneTextField.enabled = true
+                        }
+                })
+                self.spinnerActivity.stopAnimating()
+                self.confirmButton.hidden = false
+                self.confirmButton.userInteractionEnabled = true
+//                self.phoneTextField.enabled = true
+                self.confirmButton.setTitle("Next", forState: .Normal)
+            } else {
+                let alertController = UIAlertController(title: "Phone Verifcation Error", message:
+                    "Phone Number is invalid.", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+
+        } else if self.confirmButton.titleLabel!.text == "Next"{
             
-            let alertController = UIAlertController(title: "Phone Verifcation Required", message:
-                "Missing Phone Number for verifcation!", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.phoneTextField.placeholder = "XXXX"
             
-        } else if (self.phoneTextField.text?.characters.count == 14){
-            self.phoneTextField.enabled = false
-            self.confirmButton.hidden = true
-            spinnerActivity.startAnimating()
+            self.phoneTextField.text = ""
+            
+            self.phoneTextField.enabled = true
+            
+            self.enterLabel.text = "Enter Validation Code"
+            
+            self.confirmButton.setTitle("OK", forState: .Normal)
+            
+            
+            
         } else {
-            let alertController = UIAlertController(title: "Phone Verifcation Error", message:
-                "Phone Number is invalid.", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            if self.phoneTextField.text == "" {
+                let alertController = UIAlertController(title: "Phone Verifcation Required", message:
+                    "Missing Verification Code!", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else if self.phoneTextField.text == String(code){
+                // create firebase user
+                
+            } else {
+                let alertController = UIAlertController(title: "Invalid", message:
+                    "You have entered an invalid code for verifcation", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+            
         }
         
-        let bg_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-        
-        dispatch_async(bg_queue, {
-            // your network request here...
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                //self.phoneTextField.enabled = true
-            })
-        })
-        
+    }
+    func phoneFormatToString(string: String) -> String{
+        var str = "+1"
+        for char in string.characters{
+            if char != "(" && char != ")" && char != "-" && char != " " {
+                str.append(char)
+            }
+        }
+        return str
     }
     
     //let ref = Firebase(url: "https://letschill.firebaseio.com")
@@ -59,7 +132,16 @@ class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
     {
-        if (textField == phoneTextField)
+        // Prevent invalid character input, if keyboard is numberpad
+        if textField.keyboardType == UIKeyboardType.PhonePad
+        {
+
+            if ((string.rangeOfCharacterFromSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)) != nil)
+            {
+                return false;
+            }
+        }
+        if (textField.placeholder == "(XXX) XXX-XXXX")
         {
             let newString = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
             let components = newString.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
@@ -99,6 +181,18 @@ class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
             formattedString.appendString(remainder)
             textField.text = formattedString as String
             return false
+        } else if textField.placeholder == "XXXX"{
+            let newString = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
+            let components = newString.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+            
+            let decimalString = components.joinWithSeparator("") as NSString
+            
+            let length = decimalString.length
+            
+            if (length > 4) {
+                return false
+            }
+            return true
         }
         else
         {

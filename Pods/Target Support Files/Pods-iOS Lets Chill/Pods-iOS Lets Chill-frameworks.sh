@@ -85,7 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-iOS Lets Chill/Firebase.framework"
+  install_framework "Pods-iOS Lets Chill/SwiftRequest.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-iOS Lets Chill/Firebase.framework"
+  install_framework "Pods-iOS Lets Chill/SwiftRequest.framework"
 fi
