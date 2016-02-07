@@ -1,18 +1,30 @@
 PODS:
   - Firebase (2.5.0)
   - GoogleMaps (1.11.1)
+  - HMSegmentedControl (1.5.2)
+  - MXPagerView (0.1.2)
+  - MXParallaxHeader (0.4.3)
+  - MXSegmentedPager (3.0.4):
+    - HMSegmentedControl (~> 1.5.2)
+    - MXPagerView (~> 0.1.2)
+    - MXParallaxHeader (~> 0.4.3)
   - SwiftRequest (0.0.4)
 
 DEPENDENCIES:
   - Firebase (>= 2.5.0)
   - GoogleMaps
+  - MXSegmentedPager
   - SwiftRequest (= 0.0.4)
 
 SPEC CHECKSUMS:
   Firebase: 744617c0733b45198f9486ebd5cac64ec2d10d79
   GoogleMaps: c947160008f414c66707a5ea60f35e92055c7670
+  HMSegmentedControl: 83b9686022d2176fb6457d2bdb61e5d6393fed7d
+  MXPagerView: b0cc1695ff8470a1bb1628e25e8878eb94606a60
+  MXParallaxHeader: 96d9e7c392a26b29b97ddc34bff904a9c0baef27
+  MXSegmentedPager: 48a6129c823a3a5c6f5809c43463dbdf8351f528
   SwiftRequest: efeebcd1a1b8f948a9121e146d6ce7ba4bbdfcfe
 
-PODFILE CHECKSUM: b6da5bd07396559074cea057c7821e3a95818892
+PODFILE CHECKSUM: af12b03f54c28fc1342d254a4cac9cea5f127b67
 
 COCOAPODS: 1.0.0.beta.2

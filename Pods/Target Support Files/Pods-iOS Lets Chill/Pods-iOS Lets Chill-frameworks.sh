@@ -85,9 +85,17 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-iOS Lets Chill/Firebase.framework"
+  install_framework "Pods-iOS Lets Chill/HMSegmentedControl.framework"
+  install_framework "Pods-iOS Lets Chill/MXPagerView.framework"
+  install_framework "Pods-iOS Lets Chill/MXParallaxHeader.framework"
+  install_framework "Pods-iOS Lets Chill/MXSegmentedPager.framework"
   install_framework "Pods-iOS Lets Chill/SwiftRequest.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-iOS Lets Chill/Firebase.framework"
+  install_framework "Pods-iOS Lets Chill/HMSegmentedControl.framework"
+  install_framework "Pods-iOS Lets Chill/MXPagerView.framework"
+  install_framework "Pods-iOS Lets Chill/MXParallaxHeader.framework"
+  install_framework "Pods-iOS Lets Chill/MXSegmentedPager.framework"
   install_framework "Pods-iOS Lets Chill/SwiftRequest.framework"
 fi

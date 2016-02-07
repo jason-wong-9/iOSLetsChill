@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SwiftRequest
+import CoreData
 
 class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
     
@@ -118,8 +119,23 @@ class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
                         } else {
                             let uid = result["uid"] as? String
                             print("Successfully created user account with uid: \(uid)")
+                            
+                            ref.authUser(email, password: String(self.code),
+                                withCompletionBlock: { error, authData in
+                                    
+                                    if error != nil {
+                                        // There was an error logging in to this account
+                                        print(error)
+                                    } else {
+                                        print("LogIn")
+                                        //self.performSegueWithIdentifier("DBSegue", sender: nil)
+                                        
+                                        // We are now logged in
+                                    }
+                            })
                         }
                 })
+                
                 
             } else {
                 let alertController = UIAlertController(title: "Invalid", message:
