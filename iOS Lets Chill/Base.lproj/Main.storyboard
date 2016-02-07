@@ -115,14 +115,27 @@
         <!--My Events-->
         <scene sceneID="yhc-aQ-Vqs">
             <objects>
-                <tableViewController id="BF5-BR-79i" sceneMemberID="viewController">
+                <tableViewController id="BF5-BR-79i" customClass="EventsTableViewController" customModule="iOS_Lets_Chill" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="eoH-Ma-Pie">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="nsU-w7-X4F">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="My Events" id="UXC-yB-oKQ">
+                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="C2m-R3-18Y">
+                                        <connections>
+                                            <segue destination="p3L-dZ-3IJ" kind="show" id="g2T-cm-Rya"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="8rT-qg-jBY">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8rT-qg-jBY" id="juu-59-2qV">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -137,17 +150,83 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Events" id="csY-3j-BmC">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Igu-wG-0Ky">
-                            <connections>
-                                <segue destination="p3L-dZ-3IJ" kind="show" id="jnO-By-DlP"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Igu-wG-0Ky"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n9F-Gn-gTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2775" y="-432"/>
+            <point key="canvasLocation" x="2758" y="-409"/>
+        </scene>
+        <!--Contacts Table View Controller-->
+        <scene sceneID="6Pj-rJ-rla">
+            <objects>
+                <tableViewController id="ae1-PS-5uw" customClass="ContactsTableViewController" customModule="iOS_Lets_Chill" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cCJ-uT-VLF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="3yx-uI-Ko7">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Contacts" id="Wes-Ly-cSk"/>
+                            </items>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7pv-00-71V">
+                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7pv-00-71V" id="mrl-1v-ans">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ae1-PS-5uw" id="cvN-OZ-cmg"/>
+                            <outlet property="delegate" destination="ae1-PS-5uw" id="U7Y-AN-d7E"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gYO-Rq-9UW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2758" y="320"/>
+        </scene>
+        <!--Settings Table View Controller-->
+        <scene sceneID="tCu-hT-xKk">
+            <objects>
+                <tableViewController id="Z9W-AC-ZeG" customClass="SettingsTableViewController" customModule="iOS_Lets_Chill" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rcr-zX-TRC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="BsF-E5-Zu7">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Settings" id="BVx-ag-DTj"/>
+                            </items>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="YD1-jC-5PC">
+                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YD1-jC-5PC" id="f5V-DJ-06T">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Z9W-AC-ZeG" id="wpg-pH-rKf"/>
+                            <outlet property="delegate" destination="Z9W-AC-ZeG" id="f5j-oS-hFC"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ize-3K-mqT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2758" y="995"/>
         </scene>
         <!--Dashboard View Controller-->
         <scene sceneID="YjP-ii-2sG">
@@ -164,11 +243,13 @@
                     </view>
                     <connections>
                         <segue destination="BF5-BR-79i" kind="custom" identifier="mx_page_0" customClass="MXPageSegue" id="WM3-uv-Lgy"/>
+                        <segue destination="ae1-PS-5uw" kind="custom" identifier="mx_page_1" customClass="MXPageSegue" id="Wkg-f0-tO1"/>
+                        <segue destination="Z9W-AC-ZeG" kind="custom" identifier="mx_page_2" customClass="MXPageSegue" id="eBs-Tw-oH9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vd8-BN-dSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2036" y="-343"/>
+            <point key="canvasLocation" x="2024" y="-343"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7We-Fc-Eka">

@@ -16,12 +16,15 @@ class DashboardViewController: MXSegmentedPagerController {
         self.segmentedPager.backgroundColor = UIColor.whiteColor()
         
         // Segmented Control customization
-        self.segmentedPager.segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+        self.segmentedPager.segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationUp
+
         self.segmentedPager.segmentedControl.backgroundColor = UIColor.whiteColor()
-        self.segmentedPager.segmentedControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.blackColor()];
+        self.segmentedPager.segmentedControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.blackColor()]
         self.segmentedPager.segmentedControl.selectedTitleTextAttributes = [NSForegroundColorAttributeName : UIColor.orangeColor()]
         self.segmentedPager.segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe
         self.segmentedPager.segmentedControl.selectionIndicatorColor = UIColor.orangeColor()
+        self.segmentedPager.segmentedControlPosition = MXSegmentedControlPosition.Bottom
+        
         // Do any additional setup after loading the view.
     }
 
@@ -30,9 +33,9 @@ class DashboardViewController: MXSegmentedPagerController {
         // Dispose of any resources that can be recreated.
     }
     
-//    override func segmentedPager(segmentedPager: MXSegmentedPager, titleForSectionAtIndex index: Int) -> String {
-//        return ["Table"][index];
-//    }
+    override func segmentedPager(segmentedPager: MXSegmentedPager, titleForSectionAtIndex index: Int) -> String {
+        return ["Events", "Contacts", "Settings"][index]
+    }
 
 
 }
