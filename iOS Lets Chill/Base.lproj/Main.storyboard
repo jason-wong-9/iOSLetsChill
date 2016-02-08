@@ -251,10 +251,10 @@
             </objects>
             <point key="canvasLocation" x="2024" y="-343"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Event View Controller-->
         <scene sceneID="Qnc-T6-4Ke">
             <objects>
-                <viewController id="FRb-w9-z02" sceneMemberID="viewController">
+                <viewController id="FRb-w9-z02" customClass="CreateEventViewController" customModule="iOS_Lets_Chill" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2iH-hU-mR5"/>
                         <viewControllerLayoutGuide type="bottom" id="fIa-7B-L4H"/>
@@ -289,15 +289,33 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L04-Gl-rFk">
                                 <rect key="frame" x="377" y="300" width="37" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="ILU-qR-VjO"/>
+                                </constraints>
                                 <state key="normal" title="Invite"/>
+                                <connections>
+                                    <action selector="inviteAction:" destination="FRb-w9-z02" eventType="touchUpInside" id="UWP-Lg-RVu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3uN-aM-v9j">
                                 <rect key="frame" x="355" y="256" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="2k8-Sy-GUL"/>
+                                </constraints>
                                 <state key="normal" title="Select Date"/>
+                                <connections>
+                                    <action selector="dateAction:" destination="FRb-w9-z02" eventType="touchUpInside" id="Esz-Ha-dAs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9T-3j-Nmi">
                                 <rect key="frame" x="355" y="209" width="81" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="81" id="YZn-nU-NVu"/>
+                                </constraints>
                                 <state key="normal" title="Select Type"/>
+                                <connections>
+                                    <action selector="typeAction:" destination="FRb-w9-z02" eventType="touchUpInside" id="tvt-Mj-Reb"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fmh-V8-aIT">
                                 <rect key="frame" x="347" y="165" width="97" height="30"/>
@@ -350,6 +368,11 @@
                                                 <segue destination="dK8-HA-szx" kind="show" animates="NO" id="KC2-HR-b3V"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Submit" id="X7h-8r-7r4">
+                                            <connections>
+                                                <action selector="submitAction:" destination="FRb-w9-z02" id="5kS-m0-OE1"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -390,6 +413,12 @@
                             <constraint firstItem="wNK-Zi-9At" firstAttribute="top" secondItem="3lG-H4-XEI" secondAttribute="bottom" constant="23" id="yee-Sy-nXH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="KXt-e2-0QA" id="Zv9-jh-7Fa"/>
+                        <outlet property="pickerView" destination="9ep-EX-b6Z" id="hG5-Cr-0vI"/>
+                        <outlet property="selectDateButton" destination="3uN-aM-v9j" id="ldN-QN-A2f"/>
+                        <outlet property="selectTypeButton" destination="v9T-3j-Nmi" id="JN7-Y9-Cof"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0z-Lh-b9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
