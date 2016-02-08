@@ -106,7 +106,7 @@ class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
                 // create firebase user
                 
                 let ref = Firebase(url: "https://letschill.firebaseio.com")
-                var index = numberTo.startIndex.advancedBy(2)
+                let index = numberTo.startIndex.advancedBy(2)
                 var email: String = numberTo.substringFromIndex(index)
                 print(email)
                 email += "@jasonkcwong.com"
@@ -244,6 +244,6 @@ class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
 }
