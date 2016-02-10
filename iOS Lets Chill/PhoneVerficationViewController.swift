@@ -94,7 +94,7 @@ class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
             
             self.confirmButton.setTitle("OK", forState: .Normal)
             
-            
+            view.endEditing(true)
             
         } else {
             if self.phoneTextField.text == "" {
@@ -116,6 +116,7 @@ class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
                         
                         if error != nil {
                             // There was an error creating the account
+                            print(error)
                         } else {
                             let uid = result["uid"] as? String
                             print("Successfully created user account with uid: \(uid)")

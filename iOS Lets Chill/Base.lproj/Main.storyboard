@@ -376,6 +376,15 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xco-mK-6Go">
+                                <rect key="frame" x="329" y="260" width="138" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="BVB-1W-wo0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -391,9 +400,11 @@
                             <constraint firstItem="VRp-VJ-gRh" firstAttribute="top" secondItem="XGm-ba-ifu" secondAttribute="bottom" constant="26" id="FL0-hN-wkK"/>
                             <constraint firstItem="wNK-Zi-9At" firstAttribute="leading" secondItem="XGm-ba-ifu" secondAttribute="trailing" constant="24" id="GfW-h7-yuW"/>
                             <constraint firstItem="P8Q-lG-i6r" firstAttribute="top" secondItem="2iH-hU-mR5" secondAttribute="bottom" id="Gir-w8-uMA"/>
+                            <constraint firstItem="xco-mK-6Go" firstAttribute="top" secondItem="v9T-3j-Nmi" secondAttribute="bottom" constant="21" id="Gqx-Sy-2eS"/>
                             <constraint firstItem="P8Q-lG-i6r" firstAttribute="centerX" secondItem="VvW-6x-nyX" secondAttribute="centerX" id="HKz-Z6-Ikc"/>
                             <constraint firstItem="wNK-Zi-9At" firstAttribute="centerX" secondItem="VvW-6x-nyX" secondAttribute="centerX" id="Nni-bQ-6fx"/>
                             <constraint firstItem="3lG-H4-XEI" firstAttribute="top" secondItem="P8Q-lG-i6r" secondAttribute="bottom" constant="105" id="Npx-cu-ZDb"/>
+                            <constraint firstItem="xco-mK-6Go" firstAttribute="leading" secondItem="fMk-zZ-2EX" secondAttribute="trailing" constant="8" id="Q73-0A-iNz"/>
                             <constraint firstItem="UkD-Ed-K8U" firstAttribute="top" secondItem="VRp-VJ-gRh" secondAttribute="bottom" constant="23" id="QHO-2d-kfW"/>
                             <constraint firstItem="3uN-aM-v9j" firstAttribute="leading" secondItem="fMk-zZ-2EX" secondAttribute="trailing" constant="34" id="TwQ-JL-cvd"/>
                             <constraint firstItem="lyQ-B1-CTt" firstAttribute="centerX" secondItem="VvW-6x-nyX" secondAttribute="centerX" id="XO0-ye-Mhe"/>
@@ -414,7 +425,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dateLabel" destination="xco-mK-6Go" id="RMt-Ro-4DF"/>
                         <outlet property="datePicker" destination="KXt-e2-0QA" id="Zv9-jh-7Fa"/>
+                        <outlet property="nameTextField" destination="fmh-V8-aIT" id="Gkl-Eb-fWd"/>
                         <outlet property="pickerView" destination="9ep-EX-b6Z" id="hG5-Cr-0vI"/>
                         <outlet property="selectDateButton" destination="3uN-aM-v9j" id="ldN-QN-A2f"/>
                         <outlet property="selectTypeButton" destination="v9T-3j-Nmi" id="JN7-Y9-Cof"/>
