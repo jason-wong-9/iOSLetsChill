@@ -120,6 +120,7 @@ class PhoneVerficationViewController: UIViewController, UITextFieldDelegate {
                         } else {
                             let uid = result["uid"] as? String
                             print("Successfully created user account with uid: \(uid)")
+                            self.view.endEditing(true)
                             
                             ref.authUser(email, password: String(self.code),
                                 withCompletionBlock: { error, authData in

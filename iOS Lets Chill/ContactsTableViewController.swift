@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AddressBook
 
 class ContactsTableViewController: UITableViewController {
 
@@ -19,6 +20,53 @@ class ContactsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+        
+    }
+    override func viewDidAppear(animated: Bool) {
+        let status = ABAddressBookGetAuthorizationStatus()
+        if status == .Denied || status == .Restricted {
+            // user previously denied, to tell them to fix that in settings
+            return
+        }
+        
+        // open it
+        
+        var error: Unmanaged<CFError>?
+        let addressBook: ABAddressBook? = ABAddressBookCreateWithOptions(nil, &error)?.takeRetainedValue()
+        if addressBook == nil {
+            print(error?.takeRetainedValue())
+            return
+        }
+        
+        // request permission to use it
+        
+        ABAddressBookRequestAccessWithCompletion(addressBook) {
+            granted, error in
+            
+            if !granted {
+                // warn the user that because they just denied permission, this functionality won't work
+                // also let them know that they have to fix this in settings
+                return
+            }
+            
+            print("Granted")
+            
+            if let people = ABAddressBookCopyArrayOfAllPeople(addressBook)?.takeRetainedValue() as? NSArray {
+                for person in people{
+                    if let name = ABRecordCopyValue(person, kABPersonFirstNameProperty).takeRetainedValue() as? String {
+                        print(name)//persons name
+                    }
+                    let numbers:ABMultiValue = ABRecordCopyValue(
+                        person, kABPersonPhoneProperty).takeRetainedValue()
+                    for ix in 0 ..< ABMultiValueGetCount(numbers) {
+                        let label = ABMultiValueCopyLabelAtIndex(numbers,ix).takeRetainedValue() as String
+                        let value = ABMultiValueCopyValueAtIndex(numbers,ix).takeRetainedValue() as! String
+                        print(label + " " + value)
+                    }
+                }
+                
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

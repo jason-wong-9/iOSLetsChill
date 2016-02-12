@@ -385,10 +385,20 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYr-rT-oQu">
+                                <rect key="frame" x="329" y="214" width="138" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="o8n-cF-03O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fMk-zZ-2EX" firstAttribute="leading" secondItem="VRp-VJ-gRh" secondAttribute="trailing" constant="25" id="23e-u4-RKF"/>
+                            <constraint firstItem="eYr-rT-oQu" firstAttribute="top" secondItem="fmh-V8-aIT" secondAttribute="bottom" constant="19" id="2H3-tG-etJ"/>
                             <constraint firstItem="v9T-3j-Nmi" firstAttribute="leading" secondItem="wNK-Zi-9At" secondAttribute="trailing" constant="34" id="5BF-Tb-zNd"/>
                             <constraint firstItem="fMk-zZ-2EX" firstAttribute="centerX" secondItem="VvW-6x-nyX" secondAttribute="centerX" id="6Sn-px-PIR"/>
                             <constraint firstItem="fMk-zZ-2EX" firstAttribute="top" secondItem="wNK-Zi-9At" secondAttribute="bottom" constant="26" id="9PM-Jc-PHx"/>
@@ -408,6 +418,7 @@
                             <constraint firstItem="UkD-Ed-K8U" firstAttribute="top" secondItem="VRp-VJ-gRh" secondAttribute="bottom" constant="23" id="QHO-2d-kfW"/>
                             <constraint firstItem="3uN-aM-v9j" firstAttribute="leading" secondItem="fMk-zZ-2EX" secondAttribute="trailing" constant="34" id="TwQ-JL-cvd"/>
                             <constraint firstItem="lyQ-B1-CTt" firstAttribute="centerX" secondItem="VvW-6x-nyX" secondAttribute="centerX" id="XO0-ye-Mhe"/>
+                            <constraint firstItem="eYr-rT-oQu" firstAttribute="leading" secondItem="wNK-Zi-9At" secondAttribute="trailing" constant="8" id="XUW-PE-iLW"/>
                             <constraint firstItem="XGm-ba-ifu" firstAttribute="top" secondItem="bZj-5G-YBP" secondAttribute="bottom" constant="23" id="are-Ne-kWG"/>
                             <constraint firstItem="P8Q-lG-i6r" firstAttribute="leading" secondItem="VvW-6x-nyX" secondAttribute="leadingMargin" constant="-16" id="b4V-15-OSv"/>
                             <constraint firstItem="v9T-3j-Nmi" firstAttribute="top" secondItem="fmh-V8-aIT" secondAttribute="bottom" constant="14" id="cpF-BS-vAK"/>
@@ -431,6 +442,7 @@
                         <outlet property="pickerView" destination="9ep-EX-b6Z" id="hG5-Cr-0vI"/>
                         <outlet property="selectDateButton" destination="3uN-aM-v9j" id="ldN-QN-A2f"/>
                         <outlet property="selectTypeButton" destination="v9T-3j-Nmi" id="JN7-Y9-Cof"/>
+                        <outlet property="typeLabel" destination="eYr-rT-oQu" id="EbS-Ed-7oy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0z-Lh-b9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
